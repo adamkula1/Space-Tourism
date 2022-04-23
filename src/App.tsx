@@ -1,9 +1,30 @@
 import React from 'react';
+import styled from "styled-components";
 import Home from './pages/Home';
+import Destination from './pages/Destination';
+import Navigation from './components/Navigation';
+
+
+// const Wrapper = styled.div`
+//     background-image: url(${bg});
+//     background-position: center;
+//     background-size: cover;
+//     background-attachment: fixed;
+//     min-height: 100vh;
+//     transition: .5s ease;
+//     background-color: #161515;
+//     background-position-y: bottom;
+// `;
+
+
 
 const App = () => {
   return (
-      <Home />
+    <>
+      {/* <Navigation /> */}
+      {/* <Home /> */}
+      <Destination />
+    </>
   )
 }
 

@@ -26,7 +26,6 @@ const List = styled.ul`
     padding-right: 17.5%;
     margin: 0;
     gap: var(--gap, 3rem);
-    list-style: none;
     color: #fff;
     background-color: rgba(128,109,109,.254);
     backdrop-filter: blur(10px);
