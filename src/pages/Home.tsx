@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from "styled-components";
 import Navigation from '../components/Navigation'
-import bg from '../assets/home/background-home-desktop.jpg'
+import BgHome from '../assets/home/background-home-desktop.jpg'
 
 const Wrapper = styled.div`
-    background-image: url(${bg});
+    background-image: url(${BgHome});
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -77,7 +77,6 @@ const Home = () => {
   return (
       <>
          <Wrapper>
-          {/* <Wrap> */}
             <Navigation />
             <Main>
               <Content>
@@ -91,7 +90,6 @@ const Home = () => {
                 <Button href='#destination'>Explore</Button>
               </Circle>
             </Main>
-          {/* </Wrap> */}
          </Wrapper>
       </>
   )
