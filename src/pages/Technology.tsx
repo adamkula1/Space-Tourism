@@ -4,8 +4,6 @@ import Navigation from '../components/Navigation'
 import BgDestination from '../assets/destination/background-destination-desktop.jpg'
 import data from '../data.json'
 
-
-
 const Wrapper = styled.div`
     background-image: url(${BgDestination});
     background-position: center;
@@ -21,25 +19,7 @@ const Main = styled.main`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  color: #fff;
-`;
-
-const PostTitle = styled.h5`
-  max-width: 1390px;
-  margin: auto;
-  font-size: 28px;
-  font-family: 'Barlow Condensed';
-  text-transform: uppercase;
-  letter-spacing: 4.72px;
-  font-weight: 300;
-  color: #fff;
-  margin-top: 5rem;
-`;
-
-const Span = styled.span`
-  margin-right: 1.5rem;
-  font-weight: bold;
-  color: #383838;
+  color: #fafafa;
 `;
 
 const Content = styled.section`
@@ -50,6 +30,26 @@ const PreSection = styled.aside`
   display: flex;
   gap: 4rem;
   height: 344px;
+`;
+
+const PostTitle = styled.h5`
+  max-width: 1390px;
+  margin: auto;
+  font-size: 28px;
+  font-family: 'Barlow Condensed';
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
+  font-weight: 300;
+  color: #fafafa;
+  margin-top: 5rem;
+`;
+
+const Title = styled.h3`
+  font-size: 56px;
+  font-family: 'Bellefair';
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
 `;
 
 const List = styled.ul`
@@ -84,12 +84,10 @@ const Link = styled.a`
   }
 `;
 
-const Title = styled.h3`
-  font-size: 56px;
-  font-family: 'Bellefair';
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 0;
+const Span = styled.span`
+  margin-right: 1.5rem;
+  font-weight: bold;
+  color: #383838;
 `;
 
 const Text = styled.p`
@@ -98,8 +96,6 @@ const Text = styled.p`
   font-family: 'Barlow';
   line-height: 32px;
   font-weight: 100;
-  /* padding-bottom: 2.5rem;
-  margin-bottom: 2rem; */
 `;
 
 const Desc = styled.p`
@@ -110,19 +106,16 @@ const Desc = styled.p`
   text-transform: uppercase;
 `;
 
-const Wrap = styled.div`
-  
-`;
-
+const Wrap = styled.div``;
 const Container = styled.section``;
 const Img = styled.img``;
+
 
 const Destination = () => {
 
 //Data from the JSON file is stored here
   const [technology, setTechnology] = useState(data.technology);
   const [value, setValue] = useState(0)
-
 
   const { name, images, description } = technology[value];
 
@@ -137,11 +130,9 @@ const Destination = () => {
                 <List>
                     {technology.map((rocket, index) => (
                         <ListItem key={index}>
-                            
                                 <Link onClick={() => setValue(index)}>
                                     {rocket.id}
                                 </Link>
-                           
                         </ListItem>
                     ))}
                 </List>

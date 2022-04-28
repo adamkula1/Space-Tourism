@@ -21,8 +21,21 @@ const Main = styled.main`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: flex-end;
-  color: #fff;
+  color: #fafafa;
   margin-top: 2.5rem;
+`;
+
+const Content = styled.section`
+  max-width: 445px;
+  height: 472px;
+`;
+
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 6rem;
 `;
 
 const PostTitle = styled.h5`
@@ -31,20 +44,18 @@ const PostTitle = styled.h5`
   text-transform: uppercase;
   letter-spacing: 4.72px;
   font-weight: 300;
-  color: #fff;
+  color: #fafafa;
   margin-bottom: 6rem;
   gap: var(--gap, 3rem);
 `;
 
-const Span = styled.span`
-  margin-right: 1.5rem;
-  font-weight: bold;
-  color: #383838;
-`;
-
-const Content = styled.section`
-  max-width: 445px;
-  height: 472px;
+const Title = styled.h2`
+  font-size: 100px;
+  font-family: 'Bellefair';
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: 3rem;
 `;
 
 const List = styled.ul`
@@ -68,13 +79,10 @@ const Link = styled.a`
   }
 `;
 
-const Title = styled.h2`
-  font-size: 100px;
-  font-family: 'Bellefair';
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 0;
-  margin-top: 3rem;
+const Span = styled.span`
+  margin-right: 1.5rem;
+  font-weight: bold;
+  color: #383838;
 `;
 
 const Text = styled.p`
@@ -85,14 +93,6 @@ const Text = styled.p`
   padding-bottom: 2.5rem;
   border-bottom: 1px solid #979797;
   margin-bottom: 2rem;
-`;
-
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  gap: 6rem;
 `;
 
 const SubheadingOne = styled.p`
@@ -121,7 +121,6 @@ const Destination = () => {
   const [destinations, setDestinations] = useState(data.destinations);
   const [value, setValue] = useState(0)
 
-
   const { name, images, description, distance, travel } = destinations[value];
 
   return (
@@ -139,14 +138,13 @@ const Destination = () => {
               {destinations.map((planet, index) => (
                 <ListItem key={index}>
                   <Link onClick={() => setValue(index)}>
-                  {planet.name}
+                    {planet.name}
                   </Link>
                 </ListItem>
               ))}
             </List>
             <Title>{name}</Title>
-            <Text>{description}
-            </Text>
+            <Text>{description}</Text>
 
             <Wrap>
               <Distance>

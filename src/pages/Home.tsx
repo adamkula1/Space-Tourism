@@ -18,7 +18,7 @@ const Main = styled.main`
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
-  color: #fff;
+  color: #fafafa;
   margin-top: 10rem;
 `;
 
@@ -36,6 +36,14 @@ const Title = styled.h1`
   margin-bottom: 2rem;
 `;
 
+const PostTitle = styled.h5`
+  font-size: 28px;
+  font-family: 'Barlow Condensed';
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
+  font-weight: 300;
+`;
+
 const Button = styled.a`
   font-size: 32px;
   font-family: 'Bellefair';
@@ -43,14 +51,6 @@ const Button = styled.a`
   font-weight: normal;
   color: #0B0D17;
   letter-spacing: 2px;
-`;
-
-const PostTitle = styled.h5`
-  font-size: 28px;
-  font-family: 'Barlow Condensed';
-  text-transform: uppercase;
-  letter-spacing: 4.72px;
-  font-weight: 300;
 `;
 
 const Text = styled.p`
@@ -67,7 +67,7 @@ const Circle = styled.div`
   justify-content: center;
   width: 15vw;
   height: 15vw;
-  background-color: #fff;
+  background-color: #fafafa;
   padding: 2em;
   border-radius: 100%;
   cursor: pointer;

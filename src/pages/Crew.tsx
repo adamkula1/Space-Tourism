@@ -4,8 +4,6 @@ import Navigation from '../components/Navigation'
 import BgCrew from '../assets/crew/background-crew-desktop.jpg'
 import data from '../data.json'
 
-
-
 const Wrapper = styled.div`
     background-image: url(${BgCrew});
     background-position: center;
@@ -28,33 +26,9 @@ const Main = styled.main`
   color: #fafafa;
 `;
 
-const PostTitle = styled.h5`
-  font-size: 28px;
-  font-family: 'Barlow Condensed';
-  text-transform: uppercase;
-  letter-spacing: 4.72px;
-  font-weight: 300;
-  margin-top: 0;
-  margin-bottom: 8rem;
-  gap: var(--gap, 3rem);
-`;
-
-const Span = styled.span`
-  margin-right: 1.5rem;
-  font-weight: bold;
-  color: #383838;
-`;
-
 const Content = styled.section`
   margin-bottom: 3rem;
   height: 200px;
-`;
-
-const List = styled.ul`
-  display: flex;
-  gap: var(--gap, 2rem);
-  margin: 0;
-  margin-bottom: 7rem;
 `;
 
 const Title = styled.h3`
@@ -75,14 +49,22 @@ const Rank = styled.h4`
   color: #818181;
 `;
 
-const Text = styled.p`
-  max-width: 445px;
-  font-size: 18px;
-  font-family: 'Barlow';
-  line-height: 32px;
-  font-weight: 100;
-  padding-bottom: 2.5rem;
-  margin-bottom: 2rem;
+const PostTitle = styled.h5`
+  font-size: 28px;
+  font-family: 'Barlow Condensed';
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 8rem;
+  gap: var(--gap, 3rem);
+`;
+
+const List = styled.ul`
+  display: flex;
+  gap: var(--gap, 2rem);
+  margin: 0;
+  margin-bottom: 7rem;
 `;
 
 const Link = styled.a`
@@ -93,9 +75,26 @@ const Link = styled.a`
   background-color: #464646;
   cursor: pointer;
   &:hover {
-    background-color: #fff;;
+    background-color: #fafafa;;
   }
 `;
+
+const Span = styled.span`
+  margin-right: 1.5rem;
+  font-weight: bold;
+  color: #383838;
+`;
+
+const Text = styled.p`
+  max-width: 445px;
+  font-size: 18px;
+  font-family: 'Barlow';
+  line-height: 32px;
+  font-weight: 100;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2rem;
+`;
+
 
 const Container = styled.section``;
 const ImgContent = styled.section``;
@@ -107,7 +106,6 @@ const Destination = () => {
 //Data from the JSON file is stored here
   const [crews, setCrews] = useState(data.crew);
   const [value, setValue] = useState(0)
-
 
   const { name, images, role, bio } = crews[value];
 
@@ -135,7 +133,7 @@ const Destination = () => {
           </Container>
       
           <ImgContent>
-          <Img src={images.png} title={name} alt={name} />
+            <Img src={images.png} title={name} alt={name} />
           </ImgContent>
       </Main>
     </Wrapper>
