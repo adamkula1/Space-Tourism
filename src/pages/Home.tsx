@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import Navigation from '../components/Navigation'
 import BgHome from '../assets/home/background-home-desktop.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
     background-image: url(${BgHome});
@@ -74,6 +75,9 @@ const Circle = styled.div`
 `;
 
 const Home = () => {
+
+  const navigate = useNavigate();
+
   return (
       <>
          <Wrapper>
@@ -87,7 +91,7 @@ const Home = () => {
                 </Text>
               </Content>
               <Circle>
-                <Button href='#destination'>Explore</Button>
+                <Button onClick={() => navigate("/destination")}>Explore</Button>
               </Circle>
             </Main>
          </Wrapper>
