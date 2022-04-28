@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
+import { useNavigate } from 'react-router-dom';
+
 
 const Nav = styled.header`
     max-width: 1865px;
@@ -61,7 +63,10 @@ const Lane = styled.div`
     background: #fff;
 `;
 
-const Navigation = () => {
+const Navigation = (props: any) => {
+
+    const navigate = useNavigate();
+
   return (
     <Nav>
         <Logo>
@@ -69,10 +74,10 @@ const Navigation = () => {
         </Logo>
         <Lane />
             <List>
-                <ListItem><Link><Number>00</Number>Home</Link></ListItem>
-                <ListItem><Link><Number>01</Number>Destination</Link></ListItem>
-                <ListItem><Link><Number>02</Number>Crew</Link></ListItem>
-                <ListItem><Link><Number>03</Number>Technology</Link></ListItem>
+                <ListItem><Link onClick={() => navigate("/")}><Number>00</Number>Home</Link></ListItem>
+                <ListItem><Link onClick={() => navigate("/destination")}><Number>01</Number>Destination</Link></ListItem>
+                <ListItem><Link onClick={() => navigate("/crew")}><Number>02</Number>Crew</Link></ListItem>
+                <ListItem><Link onClick={() => navigate("/technology")}><Number>03</Number>Technology</Link></ListItem>
             </List>
     </Nav>
   )
