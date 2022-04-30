@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
 
@@ -28,12 +28,12 @@ const Nav = styled.header`
 
 const List = styled.ul`
     display: flex;
-    padding: 2.3rem 0;
+    /* padding: 2.3rem 0; */
     padding-left: 6.65%;
     padding-right: 17.5%;
     margin: 0;
     gap: var(--gap, 3rem);
-    color: #fff;
+    color: #fafafa;
     /* background-color: rgba(128,109,109,.254); */
     background: hsl(0 0% 100% / 0.1);
     backdrop-filter: blur(1rem);
@@ -65,9 +65,6 @@ const Link = styled.a`
     cursor: pointer;
     font-family: 'Barlow Condensed';
     letter-spacing: 2.7px;
-    &:hover {
-        border-bottom: 2px solid #fff;
-    }
     @media only screen and (max-width: 768px) {
         font-size: 14px;
     }
@@ -94,7 +91,7 @@ const Line = styled.div`
     position: relative;
     left: 3rem;
     z-index: 1;
-    background: #fff;
+    background: #fafafa;
     @media only screen and (max-width: 1024px) {
         display: none;
     }
@@ -116,8 +113,6 @@ const Logo = styled.div``;
 
 const Navigation = () => {
 
-    const navigate = useNavigate();
-
     const [navbarOpen, setNavbarOpen] = useState(false)
 
     const handleToggle = () => {
@@ -132,10 +127,10 @@ const Navigation = () => {
         </Logo>
         <Line />
             <List style={ navbarOpen ? { display: 'inherit'} : {}}>       
-                <ListItem><Link onClick={() => navigate("/")}><Number>00</Number>Home</Link></ListItem>
-                <ListItem><Link onClick={() => navigate("/destination")}><Number>01</Number>Destination</Link></ListItem>
-                <ListItem><Link onClick={() => navigate("/crew")}><Number>02</Number>Crew</Link></ListItem>
-                <ListItem><Link onClick={() => navigate("/technology")}><Number>03</Number>Technology</Link></ListItem>
+                <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "link")}><ListItem><Link><Number>00</Number>Home</Link></ListItem></NavLink>
+                <NavLink to="/destination" className={({ isActive }) => (isActive ? "link-active" : "link")}><ListItem><Link><Number>01</Number>Destination</Link></ListItem></NavLink>
+                <NavLink to="/crew" className={({ isActive }) => (isActive ? "link-active" : "link")}><ListItem><Link><Number>02</Number>Crew</Link></ListItem></NavLink>
+                <NavLink to="/technology" className={({ isActive }) => (isActive ? "link-active" : "link")}><ListItem><Link><Number>03</Number>Technology</Link></ListItem></NavLink>
             </List>
         <MenuNav onClick={handleToggle}>
             {navbarOpen ? (

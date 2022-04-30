@@ -41,12 +41,14 @@ const Content = styled.section``;
 const PreSection = styled.aside`
   display: flex;
   gap: 4rem;
+  height: 345px;
   @media only screen and (max-width: 1220px) {
     gap: 2rem;
   }
   @media only screen and (max-width: 1024px) {
     flex-direction: column;
     text-align: center;
+    height: auto;
   }
 `;
 
@@ -136,7 +138,8 @@ const Link = styled.a`
   border: 1px solid #8b8b8b;
   border-radius: 50%;
   cursor: pointer;
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #fafafa;
     color: #0B0D17;
   }
@@ -232,7 +235,7 @@ const Destination = () => {
                 <List>
                     {technology.map((rocket, index) => (
                         <ListItem key={index}>
-                                <Link onClick={() => setValue(index)}>
+                                <Link onClick={() => setValue(index)} className={`${index === value && "bg-active"}`}>
                                     {rocket.id}
                                 </Link>
                         </ListItem>
