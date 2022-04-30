@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import Navigation from '../components/Navigation'
 import BgHome from '../assets/home/background-home-desktop.jpg'
+import BgHomeDevice from '../assets/home/background-home-tablet.jpg'
 import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -13,6 +14,13 @@ const Wrapper = styled.div`
     transition: .5s ease;
     background-color: #161515;
     background-position-y: bottom;
+    @media only screen and (max-width: 1024px) {
+      background-image: url(${BgHomeDevice});
+      background-position-y: center;
+    }
+    @media only screen and (max-width: 768px) {
+      background-position-y: 3rem;
+    }
 `;
 
 const Main = styled.main`
@@ -21,11 +29,28 @@ const Main = styled.main`
   justify-content: space-around;
   color: #fafafa;
   margin-top: 10rem;
+  @media only screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    text-align: center;
+    gap: 8rem;
+  }
+  @media only screen and (max-width: 520px) {
+    margin-top: 2rem;
+  }
 `;
 
 const Content = styled.section`
   max-width: 450px;
   cursor: pointer;
+  @media only screen and (max-width: 1024px) {
+    max-width: 485px;
+  }
+  @media only screen and (max-width: 520px) {
+    max-width: 420px;
+  }
 `;
 
 const Title = styled.h1`
@@ -35,6 +60,9 @@ const Title = styled.h1`
   font-weight: normal;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  @media only screen and (max-width: 520px) {
+    font-size: 80px;
+  }
 `;
 
 const PostTitle = styled.h5`
@@ -43,6 +71,9 @@ const PostTitle = styled.h5`
   text-transform: uppercase;
   letter-spacing: 4.72px;
   font-weight: 300;
+  @media only screen and (max-width: 520px) {
+    font-size: 16px;
+  }
 `;
 
 const Button = styled.a`
@@ -60,18 +91,27 @@ const Text = styled.p`
   font-weight: 300;
   line-height: 32px;
   margin-bottom: 0;
+  @media only screen and (max-width: 520px) {
+    padding: 0 1.5rem;
+  }
+  @media only screen and (max-width: 375px) {
+    font-size: 16px;
+  }
 `;
 
 const Circle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 15vw;
-  height: 15vw;
+  width: 242px;
+  height: 242px;
   background-color: #fafafa;
   padding: 2em;
   border-radius: 100%;
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 const Home = () => {
@@ -79,7 +119,6 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-      <>
          <Wrapper>
             <Navigation />
             <Main>
@@ -95,7 +134,6 @@ const Home = () => {
               </Circle>
             </Main>
          </Wrapper>
-      </>
   )
 }
 
