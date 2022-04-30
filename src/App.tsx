@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import Home from './pages/Home';
 import Destination from './pages/Destination';
@@ -12,7 +12,10 @@ import {
   Route,
 } from "react-router-dom";
 
+
+
 const App = () => {
+
   return (
     <BrowserRouter>
       <Routes>

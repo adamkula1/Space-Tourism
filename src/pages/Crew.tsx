@@ -240,7 +240,7 @@ const Destination = () => {
            <List>
               {crews.map((person, index) => (
                 <ListItem key={index}>
-                  <Link onClick={() => setValue(index)}>
+                  <Link onClick={() => setValue(index)} className={`${index === value && "bg-active"}`}>
                   </Link>
                 </ListItem>
               ))}

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Navigation from '../components/Navigation'
 import BgDestination from '../assets/destination/background-destination-desktop.jpg'
 import data from '../data.json'
+import { NavLink } from 'react-router-dom';
 
 const Wrapper = styled.div`
     background-image: url(${BgDestination});
@@ -114,9 +115,10 @@ const Link = styled.a`
   font-weight: 200;
   padding: 0.5rem 0;
   &:hover {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #fafafa;
   }
 `;
+
 
 const Span = styled.span`
   margin-right: 1.5rem;
@@ -167,6 +169,7 @@ const Img = styled.img`
     }
 `;
 
+
 const Destination = () => {
 
 //Data from the JSON file is stored here
@@ -174,6 +177,8 @@ const Destination = () => {
   const [value, setValue] = useState(0)
 
   const { name, images, description, distance, travel } = destinations[value];
+
+  
 
   return (
     <>
@@ -188,8 +193,8 @@ const Destination = () => {
           <Content>
             <List>
               {destinations.map((planet, index) => (
-                <ListItem key={index}>
-                  <Link onClick={() => setValue(index)}>
+               <ListItem key={index}>
+                  <Link onClick={() => setValue(index)} className={`${index === value && "border-active"}`}>
                     {planet.name}
                   </Link>
                 </ListItem>
