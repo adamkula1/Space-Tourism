@@ -4,8 +4,6 @@ import Navigation from '../components/Navigation'
 import BgDestination from '../assets/destination/background-destination-desktop.jpg'
 import data from '../data.json'
 
-
-
 const Wrapper = styled.div`
     background-image: url(${BgDestination});
     background-position: center;
@@ -23,11 +21,28 @@ const Main = styled.main`
   align-items: flex-end;
   color: #fafafa;
   margin-top: 2.5rem;
+  @media only screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 0;
+    gap: 3rem;
+    padding-bottom: 3rem;
+  }
 `;
 
 const Content = styled.section`
-  max-width: 445px;
-  height: 472px;
+  max-width: 440px;
+  @media only screen and (max-width: 1024px) {
+    max-width: 615px;
+  }
+  @media only screen and (max-width: 768px) {
+    max-width: 505px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 `;
 
 const Wrap = styled.div`
@@ -36,6 +51,14 @@ const Wrap = styled.div`
   flex-wrap: nowrap;
   justify-content: flex-start;
   gap: 6rem;
+  @media only screen and (max-width: 1024px) {
+    justify-content: center;
+    gap: 5rem
+  }
+  @media only screen and (max-width: 520px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 const PostTitle = styled.h5`
@@ -47,6 +70,16 @@ const PostTitle = styled.h5`
   color: #fafafa;
   margin-bottom: 6rem;
   gap: var(--gap, 3rem);
+  @media only screen and (max-width: 1024px) {
+    text-align: left;
+    margin-bottom: 4rem;
+  }
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+  }
+  @media only screen and (max-width: 520px) {
+    font-size: 16px;
+  }
 `;
 
 const Title = styled.h2`
@@ -56,12 +89,18 @@ const Title = styled.h2`
   text-transform: uppercase;
   margin: 0;
   margin-top: 3rem;
+  @media only screen and (max-width: 520px) {
+    font-size: 56px;
+  }
 `;
 
 const List = styled.ul`
   display: flex;
   gap: var(--gap, 2rem);
   margin: 0;
+  @media only screen and (max-width: 1024px) {
+    justify-content: center;
+  }
 `;
 
 const ListItem = styled.li`
@@ -93,6 +132,9 @@ const Text = styled.p`
   padding-bottom: 2.5rem;
   border-bottom: 1px solid #979797;
   margin-bottom: 2rem;
+  @media only screen and (max-width: 520px) {
+    font-size: 15px;
+  }
 `;
 
 const SubheadingOne = styled.p`
@@ -110,10 +152,20 @@ const SubheadingTwo = styled.p`
   margin: 0;
 `;
 
-const Container = styled.section``;
+const Container = styled.section`
+  @media only screen and (max-width: 1024px) {
+      width: 90%;
+    }
+`;
+
 const Distance = styled.div``;
 const Time = styled.div``;
-const Img = styled.img``;
+const Img = styled.img`
+  @media only screen and (max-width: 768px) {
+      width: 60%;
+      height: auto;
+    }
+`;
 
 const Destination = () => {
 
