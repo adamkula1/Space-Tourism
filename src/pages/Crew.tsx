@@ -21,7 +21,6 @@ const Main = styled.main`
   margin: auto;
   display: flex;
   flex-direction: row;
-  /* justify-content: space-evenly; */
   justify-content: space-between;
   align-items: flex-end;
   align-content: flex-end;
@@ -231,26 +230,25 @@ const Destination = () => {
     <Wrapper>
         <Navigation />
       <Main>
-        
           <PostTitleMobile><Span>02</Span>Meet your crew</PostTitleMobile>
-          <Container>
-          <AnimatedPage>
-            <PostTitle><Span>02</Span>Meet your crew</PostTitle>
-            <Rank>Commander</Rank>
-            <Title>{name}</Title>
-            <Content>
-                <Text>{bio}</Text>
-            </Content>
-          </AnimatedPage>
-           <List>
-              {crews.map((person, index) => (
-                <ListItem key={index}>
-                  <Link onClick={() => setValue(index)} className={`${index === value && "bg-active"}`}>
-                  </Link>
-                </ListItem>
-              ))}
-            </List>
-          </Container>
+            <Container>
+              <AnimatedPage>
+                <PostTitle><Span>02</Span>Meet your crew</PostTitle>
+                <Rank>Commander</Rank>
+                <Title>{name}</Title>
+                <Content>
+                    <Text>{bio}</Text>
+                </Content>
+              </AnimatedPage>
+              <List>
+                  {crews.map((person, index) => (
+                    <ListItem key={index}>
+                      <Link onClick={() => setValue(index)} className={`${index === value && "bg-active"}`}>
+                      </Link>
+                    </ListItem>
+                  ))}
+              </List>
+            </Container>
           <ImgContent>
             <Img src={images.png} title={name} alt={name} />
           </ImgContent>

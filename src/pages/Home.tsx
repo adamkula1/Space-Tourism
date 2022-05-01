@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Navigation from '../components/Navigation'
 import BgHome from '../assets/home/background-home-desktop.jpg'
 import BgHomeDevice from '../assets/home/background-home-tablet.jpg'
@@ -35,7 +35,6 @@ const Main = styled.main`
     text-align: center;
     gap: 4rem;
   }
-
   @media only screen and (max-width: 768px) {
     gap: 2rem;
   }
@@ -132,8 +131,6 @@ const Circle = styled.div`
 `;
 
 
-
-
 const Home = () => {
 
   const navigate = useNavigate();
@@ -143,18 +140,18 @@ const Home = () => {
             <Navigation />
             <Main>
               <Content>
-              <AnimatedPage>
-                <PostTitle>So, you want to travel to</PostTitle>
-                <Title>Space</Title>
-                <Text>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it.
-                  Well sit back, and relax because we’ll give you a truly out of this world experience!
-                </Text>
+                <AnimatedPage>
+                  <PostTitle>So, you want to travel to</PostTitle>
+                  <Title>Space</Title>
+                  <Text>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it.
+                    Well sit back, and relax because we’ll give you a truly out of this world experience!
+                  </Text>
                 </AnimatedPage>
               </Content>
               <CircleAnimation>
-              <Circle>
-                <Button onClick={() => navigate("/destination")}>Explore</Button>
-              </Circle>
+                <Circle>
+                  <Button onClick={() => navigate("/destination")}>Explore</Button>
+                </Circle>
               </CircleAnimation>
             </Main>
          </Wrapper>

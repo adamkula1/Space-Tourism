@@ -226,7 +226,6 @@ const Destination = () => {
   const { name, images, description } = technology[value];
 
   return (
-    <>
     <Wrapper>
         <Navigation />
         <PostTitle><Span>03</Span>Space launch 101</PostTitle>
@@ -243,11 +242,11 @@ const Destination = () => {
                     ))}
                 </List>
                 <Wrap>
-                <AnimatedPage>
-                    <Desc>The technology ...</Desc>
-                    <Title>{name}</Title>
-                    <Text>{description}</Text>
-                    </AnimatedPage>
+                  <AnimatedPage>
+                      <Desc>The technology ...</Desc>
+                      <Title>{name}</Title>
+                      <Text>{description}</Text>
+                  </AnimatedPage>
                 </Wrap>
             </PreSection>
           </Content>
@@ -257,7 +256,6 @@ const Destination = () => {
           </Container>
       </Main>
     </Wrapper>
-    </>
   )
 }
 

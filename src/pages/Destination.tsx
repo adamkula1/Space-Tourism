@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import Navigation from '../components/Navigation'
 import BgDestination from '../assets/destination/background-destination-desktop.jpg'
 import data from '../data.json'
-import { NavLink } from 'react-router-dom';
 import AnimatedPage from '../assets/css/AnimatedPage';
 
 const Wrapper = styled.div`
@@ -160,9 +159,6 @@ const Container = styled.section`
     }
 `;
 
-const Distance = styled.div``;
-const Time = styled.div``;
-
 const rotation = keyframes`
   from {
     transform: rotate(0deg);
@@ -179,6 +175,9 @@ const Img = styled.img`
       height: auto;
     }
 `;
+
+const Distance = styled.div``;
+const Time = styled.div``;
 
 
 
@@ -211,25 +210,24 @@ const Destination = () => {
               ))}
             </List>
             <AnimatedPage>
-            <Title>{name}</Title>
-            <Text>{description}</Text>
+              <Title>{name}</Title>
+              <Text>{description}</Text>
 
-            <Wrap>
-              <Distance>
-                <SubheadingOne>Avg. Distance</SubheadingOne>
-                <SubheadingTwo>{distance}</SubheadingTwo>
-              </Distance>
+              <Wrap>
+                <Distance>
+                  <SubheadingOne>Avg. Distance</SubheadingOne>
+                  <SubheadingTwo>{distance}</SubheadingTwo>
+                </Distance>
 
-              <Time>
-                <SubheadingOne>Est. Travel time</SubheadingOne>
-                <SubheadingTwo>{travel}</SubheadingTwo>
-              </Time>
-            </Wrap>
+                <Time>
+                  <SubheadingOne>Est. Travel time</SubheadingOne>
+                  <SubheadingTwo>{travel}</SubheadingTwo>
+                </Time>
+              </Wrap>
             </AnimatedPage>
           </Content>
       </Main>
     </Wrapper>
-    
   )
 }
 
