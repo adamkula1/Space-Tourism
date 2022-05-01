@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
+import AnimatedPage from '../assets/css/AnimatedPage';
 
 
 const Nav = styled.header`
@@ -38,6 +39,7 @@ const List = styled.ul`
     background: hsl(0 0% 100% / 0.1);
     backdrop-filter: blur(1rem);
     align-items: center;
+    z-index: 1;
     @media only screen and (max-width: 1024px) {
         padding-right: 5%;
     }
@@ -112,7 +114,6 @@ const MenuNav = styled.button`
 const Logo = styled.div``;
 
 const Navigation = () => {
-
     const [navbarOpen, setNavbarOpen] = useState(false)
 
     const handleToggle = () => {
@@ -140,7 +141,6 @@ const Navigation = () => {
             )}
         </MenuNav>
     </Nav>
-
     </>
   )
 }
