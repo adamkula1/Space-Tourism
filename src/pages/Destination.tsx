@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Navigation from '../components/Navigation'
 import BgDestination from '../assets/destination/background-destination-desktop.jpg'
 import data from '../data.json'
-
-
+import AnimatedPage from '../assets/css/AnimatedPage';
 
 const Wrapper = styled.div`
     background-image: url(${BgDestination});
@@ -23,11 +22,28 @@ const Main = styled.main`
   align-items: flex-end;
   color: #fafafa;
   margin-top: 2.5rem;
+  @media only screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 0;
+    gap: 3rem;
+    padding-bottom: 3rem;
+  }
 `;
 
 const Content = styled.section`
-  max-width: 445px;
-  height: 472px;
+  max-width: 440px;
+  @media only screen and (max-width: 1024px) {
+    max-width: 615px;
+  }
+  @media only screen and (max-width: 768px) {
+    max-width: 505px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 `;
 
 const Wrap = styled.div`
@@ -36,6 +52,14 @@ const Wrap = styled.div`
   flex-wrap: nowrap;
   justify-content: flex-start;
   gap: 6rem;
+  @media only screen and (max-width: 1024px) {
+    justify-content: center;
+    gap: 5rem
+  }
+  @media only screen and (max-width: 520px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 const PostTitle = styled.h5`
@@ -47,6 +71,16 @@ const PostTitle = styled.h5`
   color: #fafafa;
   margin-bottom: 6rem;
   gap: var(--gap, 3rem);
+  @media only screen and (max-width: 1024px) {
+    text-align: left;
+    margin-bottom: 4rem;
+  }
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+  }
+  @media only screen and (max-width: 520px) {
+    font-size: 16px;
+  }
 `;
 
 const Title = styled.h2`
@@ -56,12 +90,18 @@ const Title = styled.h2`
   text-transform: uppercase;
   margin: 0;
   margin-top: 3rem;
+  @media only screen and (max-width: 520px) {
+    font-size: 56px;
+  }
 `;
 
 const List = styled.ul`
   display: flex;
   gap: var(--gap, 2rem);
   margin: 0;
+  @media only screen and (max-width: 1024px) {
+    justify-content: center;
+  }
 `;
 
 const ListItem = styled.li`
@@ -75,7 +115,7 @@ const Link = styled.a`
   font-weight: 200;
   padding: 0.5rem 0;
   &:hover {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #fafafa;
   }
 `;
 
@@ -93,6 +133,9 @@ const Text = styled.p`
   padding-bottom: 2.5rem;
   border-bottom: 1px solid #979797;
   margin-bottom: 2rem;
+  @media only screen and (max-width: 520px) {
+    font-size: 15px;
+  }
 `;
 
 const SubheadingOne = styled.p`
@@ -110,10 +153,33 @@ const SubheadingTwo = styled.p`
   margin: 0;
 `;
 
-const Container = styled.section``;
+const Container = styled.section`
+  @media only screen and (max-width: 1024px) {
+      width: 90%;
+    }
+`;
+
+const rotation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  } 
+`
+
+const Img = styled.img`
+  animation: ${rotation} 140s infinite linear;
+  @media only screen and (max-width: 768px) {
+      width: 60%;
+      height: auto;
+    }
+`;
+
 const Distance = styled.div``;
 const Time = styled.div``;
-const Img = styled.img``;
+
+
 
 const Destination = () => {
 
@@ -123,8 +189,9 @@ const Destination = () => {
 
   const { name, images, description, distance, travel } = destinations[value];
 
+  
+
   return (
-    <>
     <Wrapper>
         <Navigation />
       <Main>
@@ -132,35 +199,35 @@ const Destination = () => {
             <PostTitle><Span>01</Span>Pick your destination</PostTitle>
             <Img src={images.png} title={name} alt={name} />
           </Container>
-      
           <Content>
             <List>
               {destinations.map((planet, index) => (
-                <ListItem key={index}>
-                  <Link onClick={() => setValue(index)}>
+               <ListItem key={index}>
+                  <Link onClick={() => setValue(index)} className={`${index === value && "border-active"}`}>
                     {planet.name}
                   </Link>
                 </ListItem>
               ))}
             </List>
-            <Title>{name}</Title>
-            <Text>{description}</Text>
+            <AnimatedPage>
+              <Title>{name}</Title>
+              <Text>{description}</Text>
 
-            <Wrap>
-              <Distance>
-                <SubheadingOne>Avg. Distance</SubheadingOne>
-                <SubheadingTwo>{distance}</SubheadingTwo>
-              </Distance>
+              <Wrap>
+                <Distance>
+                  <SubheadingOne>Avg. Distance</SubheadingOne>
+                  <SubheadingTwo>{distance}</SubheadingTwo>
+                </Distance>
 
-              <Time>
-                <SubheadingOne>Est. Travel time</SubheadingOne>
-                <SubheadingTwo>{travel}</SubheadingTwo>
-              </Time>
-            </Wrap>
+                <Time>
+                  <SubheadingOne>Est. Travel time</SubheadingOne>
+                  <SubheadingTwo>{travel}</SubheadingTwo>
+                </Time>
+              </Wrap>
+            </AnimatedPage>
           </Content>
       </Main>
     </Wrapper>
-    </>
   )
 }
 
