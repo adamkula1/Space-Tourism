@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Navigation from '../components/Navigation'
 import BgCrew from '../assets/crew/background-crew-desktop.jpg'
 import data from '../data.json'
+import AnimatedPage from '../assets/css/AnimatedPage';
 
 const Wrapper = styled.div`
     background-image: url(${BgCrew});
@@ -15,11 +16,13 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled.main`
+  max-width: 1440px;
   height: 85.9vh;
   margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  justify-content: space-between;
   align-items: flex-end;
   align-content: flex-end;
   color: #fafafa;
@@ -43,6 +46,9 @@ const Content = styled.section`
     margin: auto;
     margin-bottom: 0;
     height: auto;
+  }
+  @media only screen and (max-width: 520px) {
+    padding: 0 1.5rem;
   }
   @media only screen and (max-width: 375px) {
     order: 4;
@@ -92,7 +98,7 @@ const PostTitle = styled.h5`
   gap: var(--gap, 3rem);
   @media only screen and (max-width: 1120px) {
     margin-bottom: 4rem;
-    text-align: left;
+    text-align: center;
   }
   @media only screen and (max-width: 768px) {
     text-align: center;
@@ -161,13 +167,11 @@ const Text = styled.p`
 
 
 const Container = styled.section`
-  @media only screen and (max-width: 1120px) {
-    width: 90%;
-  }
+  padding: 0 1.5rem;
   @media only screen and (max-width: 375px) {
     order: 2;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 
@@ -224,19 +228,20 @@ const Destination = () => {
   const { name, images, role, bio } = crews[value];
 
   return (
-    <>
     <Wrapper>
         <Navigation />
       <Main>
+        
           <PostTitleMobile><Span>02</Span>Meet your crew</PostTitleMobile>
           <Container>
+          <AnimatedPage>
             <PostTitle><Span>02</Span>Meet your crew</PostTitle>
             <Rank>Commander</Rank>
             <Title>{name}</Title>
             <Content>
                 <Text>{bio}</Text>
             </Content>
-           
+          </AnimatedPage>
            <List>
               {crews.map((person, index) => (
                 <ListItem key={index}>
@@ -246,13 +251,11 @@ const Destination = () => {
               ))}
             </List>
           </Container>
-      
           <ImgContent>
             <Img src={images.png} title={name} alt={name} />
           </ImgContent>
       </Main>
     </Wrapper>
-    </>
   )
 }
 

@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Navigation from '../components/Navigation'
 import BgDestination from '../assets/destination/background-destination-desktop.jpg'
 import data from '../data.json'
 import { NavLink } from 'react-router-dom';
+import AnimatedPage from '../assets/css/AnimatedPage';
 
 const Wrapper = styled.div`
     background-image: url(${BgDestination});
@@ -119,7 +120,6 @@ const Link = styled.a`
   }
 `;
 
-
 const Span = styled.span`
   margin-right: 1.5rem;
   font-weight: bold;
@@ -162,12 +162,24 @@ const Container = styled.section`
 
 const Distance = styled.div``;
 const Time = styled.div``;
+
+const rotation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  } 
+`
+
 const Img = styled.img`
+  animation: ${rotation} 140s infinite linear;
   @media only screen and (max-width: 768px) {
       width: 60%;
       height: auto;
     }
 `;
+
 
 
 const Destination = () => {
@@ -181,7 +193,6 @@ const Destination = () => {
   
 
   return (
-    <>
     <Wrapper>
         <Navigation />
       <Main>
@@ -189,7 +200,6 @@ const Destination = () => {
             <PostTitle><Span>01</Span>Pick your destination</PostTitle>
             <Img src={images.png} title={name} alt={name} />
           </Container>
-      
           <Content>
             <List>
               {destinations.map((planet, index) => (
@@ -200,6 +210,7 @@ const Destination = () => {
                 </ListItem>
               ))}
             </List>
+            <AnimatedPage>
             <Title>{name}</Title>
             <Text>{description}</Text>
 
@@ -214,10 +225,11 @@ const Destination = () => {
                 <SubheadingTwo>{travel}</SubheadingTwo>
               </Time>
             </Wrap>
+            </AnimatedPage>
           </Content>
       </Main>
     </Wrapper>
-    </>
+    
   )
 }
 

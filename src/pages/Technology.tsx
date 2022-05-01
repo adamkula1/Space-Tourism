@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation'
 import BgTechnology from '../assets/technology/background-technology-desktop.jpg'
 import BgTechnologyDevice from '../assets/technology/background-technology-tablet.jpg'
 import data from '../data.json'
+import AnimatedPage from '../assets/css/AnimatedPage';
 
 const Wrapper = styled.div`
     background-image: url(${BgTechnology});
@@ -242,13 +243,14 @@ const Destination = () => {
                     ))}
                 </List>
                 <Wrap>
+                <AnimatedPage>
                     <Desc>The technology ...</Desc>
                     <Title>{name}</Title>
                     <Text>{description}</Text>
+                    </AnimatedPage>
                 </Wrap>
             </PreSection>
           </Content>
-
           <Container>
             <Img src={images.portrait} title={name} alt={name} />
             <ImgDevice src={images.landscape} title={name} alt={name} />
