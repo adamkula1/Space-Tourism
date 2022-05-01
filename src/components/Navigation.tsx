@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
-import { NavLink, Route, Routes, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
-import AnimatedPage from '../assets/css/AnimatedPage';
-
+import LogoSvg from '../assets/shared/logo.svg'
 
 const Nav = styled.header`
     margin-left: 3.5rem;
@@ -29,7 +28,6 @@ const Nav = styled.header`
 
 const List = styled.ul`
     display: flex;
-    /* padding: 2.3rem 0; */
     padding-left: 6.65%;
     padding-right: 17.5%;
     margin: 0;
@@ -86,7 +84,6 @@ const Number = styled.span`
     }
 `;
 
-
 const Line = styled.div`
     flex-grow: 1;
     height: 1px;
@@ -111,7 +108,11 @@ const MenuNav = styled.button`
     }
 `;
 
-const Logo = styled.div``;
+const Logo = styled.div`
+    background-image: url(${LogoSvg});
+    width: 48px;
+    height: 48px;
+`;
 
 const Navigation = () => {
     const [navbarOpen, setNavbarOpen] = useState(false)
@@ -121,11 +122,8 @@ const Navigation = () => {
       }
 
   return (
-    <>
     <Nav>
-        <Logo>
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fill-rule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF"/><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z"/></g></svg>
-        </Logo>
+        <Logo />
         <Line />
             <List style={ navbarOpen ? { display: 'inherit'} : {}}>       
                 <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "link")}><ListItem><Link><Number>00</Number>Home</Link></ListItem></NavLink>
@@ -141,7 +139,6 @@ const Navigation = () => {
             )}
         </MenuNav>
     </Nav>
-    </>
   )
 }
 
