@@ -22,7 +22,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://www.adamkula.sk/)
+- Live Site URL: [Add live site URL here](https://spacestourism.netlify.app/)
 
 ### Built with
 
