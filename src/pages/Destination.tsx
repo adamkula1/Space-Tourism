@@ -184,7 +184,7 @@ const Time = styled.div``;
 const Destination = () => {
 
 //Data from the JSON file is stored here
-  const [destinations, setDestinations] = useState(data.destinations);
+  const [destinations] = useState(data.destinations);
   const [value, setValue] = useState(0)
 
   const { name, images, description, distance, travel } = destinations[value];

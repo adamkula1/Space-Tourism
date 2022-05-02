@@ -221,10 +221,10 @@ const PostTitleMobile = styled.h5`
 const Destination = () => {
 
 //Data from the JSON file is stored here
-  const [crews, setCrews] = useState(data.crew);
+  const [crews] = useState(data.crew);
   const [value, setValue] = useState(0)
 
-  const { name, images, role, bio } = crews[value];
+  const { name, images, bio } = crews[value];
 
   return (
     <Wrapper>

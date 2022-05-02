@@ -220,7 +220,7 @@ const ImgDevice = styled.img`
 const Destination = () => {
 
 //Data from the JSON file is stored here
-  const [technology, setTechnology] = useState(data.technology);
+  const [technology] = useState(data.technology);
   const [value, setValue] = useState(0)
 
   const { name, images, description } = technology[value];
