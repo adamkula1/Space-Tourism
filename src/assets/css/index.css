@@ -31,6 +31,12 @@ li {
   border-bottom: 2px solid #fafafa;
 }
 
+@media only screen and (max-width: 520px) {
+  .link-active, .link {
+    padding: 0 0;
+  }
+}
+
 /* Specific styles for active links */
 .border-active {
   border-bottom: 2px solid #fafafa !important;
